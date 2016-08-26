@@ -43,28 +43,53 @@ anyEvens([3,6,9,12])
 
 // printDataType
 
-//I got stuck on validating the function as a data type and ran out of time for this test and did not get to FizzBuzz beause of that
+var printDataType = function(collection){
 
-/*var printDataType = function(collection){
+
 	if(Array.isArray(collection)){
 		for (var i = 0; i < collection.length; i++) {
-			if(collection[i] === typeof object){
-				console.log('I am an array')
-			} else if (collection[i] === typeof function{
-				console.log('I am a function')
-			} else 
+			if (typeof collection[i] === 'object'){
+				console.log('I am an array.')
+			} else if (typeof collection[i] === 'function'){
+				console.log('I am a function.')
+			}
 		}
 
+	} else if (typeof collection === 'object'){
+		for (var key in collection){
+			if (typeof collection[key] === 'string'){
+				console.log('I am a string.')
+			} else if (typeof collection[key] === 'number'){
+				console.log('I am a number.')
+			} else if (typeof collection[key] === 'boolean') {
+				console.log('I am a boolean.')
+			}
+		}
+
+	} else { 
+		console.log('I do not know what you are! What are you?.')
 	}
 }
-*/
+
+var testArray = [[1,2,3],function(){}]
+
+var testObject = {
+	string: 'string',
+	number: 4,
+	boolean: true
+}
+
+printDataType(testArray)
+printDataType(testObject)
 
 // isDivisibleBy
 var isDivisibleBy = function (num1, num2){
 	if(num1%num2 === 0){
-		return 'It is ' + true + ' that '+ num1 + ' is evenly divisible by ' + num2 + '.'
+		//return 'It is ' + true + ' that '+ num1 + ' is evenly divisible by ' + num2 + '.'
+		return true
 	}else {
-		return 'It is ' + false + ' that '+ num1 + ' is evenly divisible by ' + num2 + '.'
+		//return 'It is ' + false + ' that '+ num1 + ' is evenly divisible by ' + num2 + '.'
+		return false
 	}
 }
 
@@ -73,3 +98,20 @@ console.log(isDivisibleBy(7,2))
 
 
 // fizzBuzz
+var fizzBuzz = function (array){
+	
+	for (var i = 0; i < array.length; i++) {
+		
+		if(isDivisibleBy(array[i],3) === true && isDivisibleBy(array[i],5) === true){
+			console.log('FizzBuzz',array[i])
+		} else if (isDivisibleBy(array[i],5) === true){
+			console.log('Buzz',array[i])
+		} else if (isDivisibleBy(array[i],3) === true){
+			console.log('Fizz',array[i])
+		} else {
+			console.log(array[i])
+		}
+	}
+}
+
+fizzBuzz([10,9,15,7])
