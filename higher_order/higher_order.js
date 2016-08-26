@@ -1,16 +1,3 @@
-// loop is built here for you
-var loop = function(collection, callback) {
-    for (var i = 0; i < collection.length; i++) {
-      callback(collection[i], i);
-    }
-  }
-};
-
-// write your talkToUser function here:
-
-
-// Use this to test your talkToUser function:
-
 var funFacts = [
 
 "A moment is a medieval unit of time equal to 1.5 minutes or 1/40 of an hour.",
@@ -22,3 +9,40 @@ var funFacts = [
 "Jupiter is the fastest spinning planet in our Solar System rotating on average once in just under 10 hours. "
 
 ];
+
+// loop is built here for you
+var loop = function(collection, callback) {
+    for (var i = 0; i < collection.length; i++) {
+      callback(collection[i], i);
+    }
+  }
+
+
+// write your talkToUser function here:
+var talkToUser = function(collectionOfFacts,promptType){
+
+	console.log(collectionOfFacts)
+
+	if(promptType === 'log'){
+		loop(collectionOfFacts,function(element){
+		console.log(element)
+		})
+
+	} else if (promptType === 'prompt'){
+		loop(collectionOfFacts,function(element){
+			prompt(element)
+		})
+	} else if (promptType === 'alert'){
+		loop(collectionOfFacts, function(element){
+			alert(element)
+		})
+	}
+
+}
+
+talkToUser(funFacts,'log')
+talkToUser(funFacts,'prompt')
+talkToUser(funFacts,'alert')
+
+// Use this to test your talkToUser function:
+
